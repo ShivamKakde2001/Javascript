@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function sum(){
+        const a = document.getElementById("firstnumber").value;
+        const b = document.getElementById("secondnumber").value;
+        const element = document.getElementById("finalSum")
+        fetch("http://localhost:3000/sum/a="+a&"b="+b)
+        .then(function(response){
+            response.text()
+            .then(function(ans){
+                document.getElementById('finalSum').innerHTML = ans;
+            })
+        })
+        // element.innerHTML = parseInt(a)+parseInt(b);
+        }
+</script>
+<body>
+    <input type="text" placeholder="First Number" id="firstnumber"><br><br>
+    <input type="text" placeholder="Second Number" id="secondnumber"><br><br> 
+    <button onclick="sum()">Calculate Sum</button><br><br>
+    <div id="finalSum"></div>
+</body>
+</html>
